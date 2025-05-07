@@ -1,7 +1,28 @@
-<h1>Mercados#index</h1>
-<p><% @contenedores.each do  mercado %></p>
-  <p><%= mercado.nombre %></p>
-  <p><%= mercado.alcaldia %></p>
-  <p><%= mercado.direccion %></p>
-  <%end %>
-<p>Find me in app/views/mercados/index.html.erb</p>
+<h1>Mercados</h1>
+
+<%= link_to "Nuevo mercado", new_mercado_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Ubicación</th>
+      <th>Alcaldía</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @mercados.each do |mercado| %>
+      <tr>
+        <td><%= mercado.nombre %></td>
+        <td><%= mercado.ubicacion %></td>
+        <td><%= mercado.alcaldia %></td>
+        <td>
+          <%= link_to "Ver", mercado_path(mercado) %>
+          <%= link_to "Editar", edit_mercado_path(mercado) %>
+          <%= button_to "Eliminar", mercado_path(mercado), method: :delete, data: { confirm: "¿Estás seguro?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

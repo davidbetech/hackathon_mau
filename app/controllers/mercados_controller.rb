@@ -38,7 +38,7 @@ class MercadosController < ApplicationController
 
   private
   def mercado_params
-    params.require(:mercado).permit(:nombre, :alcaldia, :ubicacion)
+    params.require(:mercado).permit(:id, :nombre, :alcaldia, :ubicacion)
   end
   def set_mercado
     @mercado = Mercado.find(params[:id])
