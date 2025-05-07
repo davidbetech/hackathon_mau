@@ -1,2 +1,7 @@
 <h1>Mercados#index</h1>
+<p><% @contenedores.each do  mercado %></p>
+  <p><%= mercado.nombre %></p>
+  <p><%= mercado.alcaldia %></p>
+  <p><%= mercado.direccion %></p>
+  <%end %>
 <p>Find me in app/views/mercados/index.html.erb</p>
