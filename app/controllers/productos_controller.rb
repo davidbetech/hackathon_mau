@@ -16,7 +16,7 @@ class ProductosController < ApplicationController
   def create
     @producto = @mercado.productos.new(producto_params)
     if @producto.save
-      redirect_to mercado_productos_path(@mercado), notice: "Producto se creó."
+      redirect_to mercado_path(@mercado), notice: "Producto creado."
     else
       render :new
     end

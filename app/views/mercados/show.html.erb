@@ -17,14 +17,13 @@
       </tr>
     </thead>
     <tbody>
-      <% @mercado.productos do |producto| %>
+     <% @mercado.productos.each do |producto| %>
         <tr>
           <td><%= producto.nombre %></td>
           <td><%= number_to_currency(producto.precio, unit: "$") %></td>
           <td>
-            <%= link_to "Ver", producto_path(producto) %>
-            <%= link_to "Editar", edit_producto_path(producto) %>
-            <%= button_to "Eliminar", producto_path(producto), method: :delete, data: { confirm: "¿Estás seguro?" } %>
+         
+            <%= link_to "Editar", edit_mercado_producto_path(@mercado, producto) %>
           </td>
         </tr>
       <% end %>

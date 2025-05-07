@@ -34,6 +34,8 @@ class MercadosController < ApplicationController
   end
 
   def destroy
+    @mercado.destroy
+    redirect_to mercados_url, notice: "Mercado se elimino"
   end
 
   private
