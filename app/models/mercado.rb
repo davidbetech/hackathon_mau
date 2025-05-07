@@ -1,0 +1,2 @@
+class Mercado < ApplicationRecord
+end
