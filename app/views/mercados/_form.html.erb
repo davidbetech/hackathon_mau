@@ -1,7 +1,6 @@
-<%= simple_form_for(mercado) do |f| %>
+<%= simple_form_for(mercado, html: { class: "formulario" }) do |f| %>
   <%= f.input :nombre %>
   <%= f.input :ubicacion %>
   <%= f.input :alcaldia %>
-
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn" %>
 <% end %>

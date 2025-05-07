@@ -1,6 +1,6 @@
 <h1>Mercados</h1>
 
-<%= link_to "Nuevo mercado", new_mercado_path %>
+<%= link_to "Nuevo mercado", new_mercado_path, class: "btn" %>
 
 <table>
   <thead>
@@ -18,8 +18,10 @@
         <td><%= mercado.ubicacion %></td>
         <td><%= mercado.alcaldia %></td>
         <td>
-          <%= link_to "Ver", mercado_path(mercado) %>
-          <%= link_to "Editar", edit_mercado_path(mercado) %>
-              <% end %>
+          <%= link_to "Ver", mercado_path(mercado), class: "btn" %>
+          <%= link_to "Editar", edit_mercado_path(mercado), class: "btn" %>
+        </td>
+      </tr>
+    <% end %>
   </tbody>
 </table>

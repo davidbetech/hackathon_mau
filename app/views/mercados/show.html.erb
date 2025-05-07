@@ -17,13 +17,12 @@
       </tr>
     </thead>
     <tbody>
-     <% @mercado.productos.each do |producto| %>
+      <% @mercado.productos.each do |producto| %>
         <tr>
           <td><%= producto.nombre %></td>
           <td><%= number_to_currency(producto.precio, unit: "$") %></td>
           <td>
-         
-            <%= link_to "Editar", edit_mercado_producto_path(@mercado, producto) %>
+            <%= link_to "Editar", edit_mercado_producto_path(@mercado, producto), class: "btn" %>
           </td>
         </tr>
       <% end %>
@@ -34,4 +33,4 @@
 <% end %>
 
 <%= link_to "Agregar nuevo producto", new_mercado_producto_path(@mercado), class: "btn" %>
-<%= link_to "Volver", mercados_path %>
+<%= link_to "Volver", mercados_path, class: "btn" %>

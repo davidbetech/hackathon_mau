@@ -1,7 +1,7 @@
 <h2>Mercado: <%= @mercado.nombre %></h2>
 <h1>Crear Nuevo Producto</h1>
 
-<%= form_with(model: [@mercado, @producto], local: true) do |form| %>
+<%= form_with(model: [@mercado, @producto], local: true, html: { class: "formulario" }) do |form| %>
   <% if @producto.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@producto.errors.count, "error") %> impidieron guardar el producto:</h2>
@@ -23,9 +23,7 @@
     <%= form.number_field :precio, step: 1.00 %>
   </div>
 
-
-
   <div class="actions">
-    <%= form.submit 'Crear Producto' %>
+    <%= form.submit 'Crear Producto', class: "btn" %>
   </div>
 <% end %>
