@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :mercados, only: [ :index, :show, :update, :destroy, :edit, :new, :create ] do
-    resources :produtos, only: [ :index, :show, :update, :destroy, :edit, :new, :create ]
+  resources :mercados do
+    resources :productos
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

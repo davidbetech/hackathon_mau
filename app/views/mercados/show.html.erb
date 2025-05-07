@@ -1,2 +1,38 @@
-<h1>Mercados#show</h1>
-<p>Find me in app/views/mercados/show.html.erb</p>
+<h1><%= @mercado.nombre %></h1>
+
+<p><strong>Ubicación:</strong> <%= @mercado.ubicacion %></p>
+<p><strong>Alcaldía:</strong> <%= @mercado.alcaldia %></p>
+
+<hr>
+
+<h2>Productos disponibles</h2>
+
+<% if @mercado.productos.any? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @mercado.productos do |producto| %>
+        <tr>
+          <td><%= producto.nombre %></td>
+          <td><%= number_to_currency(producto.precio, unit: "$") %></td>
+          <td>
+            <%= link_to "Ver", producto_path(producto) %>
+            <%= link_to "Editar", edit_producto_path(producto) %>
+            <%= button_to "Eliminar", producto_path(producto), method: :delete, data: { confirm: "¿Estás seguro?" } %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p>No hay productos asociados a este mercado aún.</p>
+<% end %>
+
+<%= link_to "Agregar nuevo producto", new_mercado_producto_path(@mercado), class: "btn" %>
+<%= link_to "Volver", mercados_path %>
